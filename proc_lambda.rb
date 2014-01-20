@@ -18,3 +18,17 @@ my_lambda =lambda do |a|
   puts "this is lambda"
 end
 p my_lambda.call 
+
+
+def run_a_proc(p)
+  puts "starting proc"
+  p.call
+  puts "Ending proc"
+end
+
+def test_proc
+  run_a_proc lambda{puts 'this is lambda'; return}
+  run_a_proc proc{puts 'this is proc'; return}
+end
+
+p test_proc
